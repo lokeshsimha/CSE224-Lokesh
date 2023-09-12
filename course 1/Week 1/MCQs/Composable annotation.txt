@@ -1,0 +1,44 @@
+The @Composable annotation
+Introduction 
+Annotations in Kotlin are a powerful language feature that allows developers to add metadata to their code that can be used to provide additional information and control the behavior of the code. This metadata can be used when the code is compiled or, while the code is running.
+
+In this reading, the basics of annotations in Kotlin are explored. In addition, one of the major features of Kotlin is its @Composable annotation, which allows developers to create reusable, composable UI components.
+
+Annotations described
+To begin, let’s define what an annotation is. Annotations are special tokens that can be added to Kotlin code in order to add additional information to code – the metadata.
+
+Annotations can be used to specify behavior, improve IDE code completion, provide information to libraries and frameworks or control compilation. Annotations can also be used to document code by providing additional information about the code. To add an annotation, the @ symbol is used followed by the annotation type. 
+
+For example, to add a description annotation to a method, the code would look like this: 
+
+Annotations can also be applied to other code members including property, class or an entire file.
+
+1234
+@Description("This method does something")
+fun doSomething() {
+    // code here
+}
+The @Composable Annotation 
+The @Composable annotation is used to denote a function that is a composable component. Components can be composed in a hierarchical fashion and the resulting code is easy to read, maintain and extend. The @Composable annotation allows developers to easily create components that are modular and reusable. Components created with the @Composable annotation can be used to create UI elements and other components.
+
+An example of the @Composable Annotation
+Here is an example of how to use the @Composable annotation:
+
+123456
+@composable
+fun MyCustomComponent(text: String, image: Image, button: Button) {
+    Text(text)
+    Image(image)
+    Button(button)
+}
+In this example, the @Composable annotation is used to create a custom component called MyCustomComponent. The component will include a Text, Image and Button composable. Internally these composables are also marked with @Composable annotation. The parameters text, image and button are passed into the function as arguments.
+
+Benefits and drawbacks of the @Composable Annotation
+The @Composable annotation has many benefits. It allows developers to create components that are reusable and modular, making it easier to maintain and extend an application. It also allows developers to use the same code in different parts of an application, which can save time and make it easier to keep the codebase up to date.
+
+However, the @Composable annotation also has some drawbacks. Composable components are not always the most efficient way to create code and can sometimes lead to slower performance. Additionally, the @Composable annotation can be difficult to debug, as components can be composed hierarchically and it can be difficult to trace an issue back to its source. 
+
+Conclusion
+Annotations in Kotlin are a powerful feature that allows developers to add metadata to their code that can be used to document code, control compilation, and create custom annotations. By understanding how to use annotations, developers can create more readable, maintainable, and reusable code.
+
+The @Composable annotation is a powerful tool for creating reusable, composable components in Kotlin. It allows developers to create code that is easier to maintain and extend and can be used in different parts of an application. However, it can also lead to slower performance and be difficult to debug. Ultimately, the @Composable annotation is a useful tool for developing applications in Kotlin and will form part of your toolkit as a developer.

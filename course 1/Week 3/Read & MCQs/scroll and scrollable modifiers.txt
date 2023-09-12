@@ -1,0 +1,54 @@
+Using scroll and scrollable modifiers
+Overview  
+Previously you learned about making horizontal and vertical lists in Jetpack Compose using the Row and Column composable. You also learned about making the Grid using a combination of Row and Column.   
+
+In this reading, you will learn about making lists scrollable when the items overflow the screen bounds. You will also learn about vertical and horizontal scrolls. Finally, you will learn about using scrollable nested lists.
+
+Making a Column scrollable
+To make a Column scrollable the verticalScroll() function of Modifier can be called upon it. This is the simplest way to allow scrolling on a Column when the content size exceeds the maximum size of the Column.
+
+The first parameter of the verticalScroll() function is state, which is a required parameter. It is used to maintain the state of the scroll, for example identifying the scroll position of the currently displayed list.
+
+An example of a scrollable column containing 20 cards is displayed below:  
+
+123456789101112131415161718192021
+fun ScrollableRow() { 
+    Row( 
+        modifier = Modifier.horizontalScroll(rememberScrollState()) 
+    ) { 
+        repeat(20) { 
+            Card( 
+                elevation = 16.dp, 
+                modifier = Modifier.padding(16.dp) 
+            ) { 
+                Text( 
+
+You might have noticed in the above code that the rememberScrollState() function is called in the state parameter, which is the compulsory first parameter. This function creates and remembers the ScrollState based on the currently appropriate scroll configuration. This allows changing the scroll position or observing the scroll behavior.
+
+Making a Row scrollable
+Similar to a Column, the horizontalScroll() function of Modifier can be called upon a Row to create a horizontally scrollable list. Below is an example of using a Row with horizontal scroll enabled.
+
+horizontalScroll() has the same parameters as verticalScroll() and both of these functions works in the same way, except of course for the direction!    
+
+Nesting the Scrollable
+Nested Scrolling is supported by Jetpack Compose. It allows responding to several events using a single gesture. A general example of a nested scrolling is a List within a List. 
+
+
+A nested list displayed on a cell phone screen
+ The list can either be a Row or a Column that is scrollable. Below you can find an example code for a scrollable Row within a scrollable Column.  
+
+1234567891011121314151617181920212223242526272829303132333435363738
+@Composable 
+fun MyCard(number:Int) { 
+    Card( 
+        elevation = 16.dp, 
+        modifier = Modifier.padding(16.dp) 
+    ) { 
+        Text( 
+            text = number.toString(), 
+            fontSize = 22.sp, 
+            fontWeight = FontWeight.Bold, 
+
+Conclusion
+In this reading, you learned about making lists scrollable when the items overflow the screen bounds. You also learned about vertical and horizontal scrolls along with nested scrolling.    
+

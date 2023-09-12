@@ -1,0 +1,252 @@
+Your grade: 80%
+Your latest: 80%•
+Your highest: 80%•
+To pass you need at least 80%. We keep your highest score.
+1.
+Question 1
+In addition to modifying an aspect of a composable’s appearance, which of the following can modifiers also be used to modify?
+
+1 / 1 point
+
+behavior
+
+
+
+decorators
+
+
+
+padding
+
+
+
+styling
+
+
+Correct
+Correct! Modifiers allow you to impart specific behavior or activity to UI elements.
+
+2.
+Question 2
+Which of the following Material Components can be implemented using Jetpack Compose? Select all that apply.
+
+0 / 1 point
+
+button
+
+
+Correct
+That's correct! Jetpack Compose allows you to implement a button with a consistent look and feel.
+
+
+list
+
+
+This should not be selected
+Not quite. Please review the video 
+Scaffold
+. 
+
+
+text-field
+
+
+Correct
+Correct! Jetpack Compose allows you to implement a text-field with a consistent look and feel.
+
+
+card
+
+
+Correct
+Correct! Jetpack Compose allows you to implement a card with a consistent look and feel.
+
+3.
+Question 3
+ Which of the following is true when using modifiers with layouts in Jetpack Compose? 
+
+1 / 1 point
+
+Modifiers can be used to alter the size, position and other attributes of composables. 
+
+
+
+Modifiers can be used to completely replace the layout. 
+
+
+
+Modifiers can be used to modify the behavior of the layout. 
+
+
+
+Modifiers can be used to customize the appearance of the layout. 
+
+
+Correct
+That's correct! When augmenting the appearance of composables, modifiers act as decorators. 
+
+4.
+Question 4
+Which of the following is the special object Compose uses to hold the value of a state?
+
+1 / 1 point
+
+State
+
+
+
+MutableState
+
+
+
+MutableStateOf
+
+
+
+remember 
+
+
+Correct
+That's correct! To define a MutableState you can call the built-in MutableStateOf function and pass in a value you want to hold as a parameter.
+
+5.
+Question 5
+Which of the following does the button composable expect you to define?
+
+1 / 1 point
+
+onClick
+
+
+
+onPress
+
+
+
+onTap
+
+
+
+onSubmit
+
+
+Correct
+That's correct! The onClick parameter is passed as a Lambda function which acts as an event handler.
+
+6.
+Question 6
+What is a BottomSheetScaffold?
+
+1 / 1 point
+
+A UI pattern that provides a side-panel for navigating.
+
+
+
+A UI pattern that provides a full screen overlay when triggered.
+
+
+
+A UI pattern that slides up from the bottom of the screen.
+
+
+Correct
+That’s correct! Scaffold provides the basic structure to build your app, with components such as a BottomSheetScaffold that can be used to navigate between different screens or display additional content or options. 
+
+7.
+Question 7
+Which of the following Design Systems can Jetpack Compose make it easy to implement?
+
+1 / 1 point
+
+Polaris
+
+
+
+Material Design
+
+
+
+Uber Design 
+
+
+
+Human Interface Guidelines
+
+
+Correct
+That's correct! The Navigation Drawer Scaffold is commonly used to provide access to an application’s top-level navigation items.
+
+8.
+Question 8
+What of the following is a parameter that accepts composable content?
+
+0 / 1 point
+
+lambdas
+
+
+
+modifiers
+
+
+
+composables
+
+
+
+slots
+
+
+Incorrect
+Not quite. Please review the reading 
+Material components
+.
+
+9.
+Question 9
+Which of the following UI patterns normally opens by clicking a button on the top app bar or by swiping from the left edge of the screen to the right?
+
+1 / 1 point
+
+the navigation drawer
+
+
+
+snackbars
+
+
+
+floating action buttons
+
+
+
+app bars
+
+
+Correct
+That's correct! The navigation drawer contains several UI elements, many of which are buttons, icons or other clickable text elements.
+
+10.
+Question 10
+What are UI Patterns? 
+
+1 / 1 point
+
+UI Patterns are algorithms used to compute the layout of an Android UI. 
+
+
+
+UI Patterns are reusable solutions to common user interface problems during Android UI building in Jetpack Compose. 
+
+
+
+UI Patterns are components of an Android UI that can be reused. 
+
+
+
+UI Patterns are data structures used to represent UI elements in an Android UI. 
+
+
+Correct
+That’s correct! UI Patterns are reusable solutions for common user interface problems encountered when building an Android UI in Jetpack Compose. 

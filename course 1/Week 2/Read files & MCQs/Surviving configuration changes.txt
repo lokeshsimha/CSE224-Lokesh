@@ -1,0 +1,36 @@
+Surviving configuration changes
+Overview
+So far, you’ve learned what State is. You also learned how to persist state across compositions. In this reading, you will learn about configuration changes and how they lead to state loss. You will then learn how to persist state across configuration changes. After completing this reading, you should be able to develop apps that survive configuration changes.
+
+Losing state
+Device configurations
+During the lifetime of an app, some properties of the device could change. These include the device orientation, language, theme changes and the enablement of multi-window mode, to name a few. In the Android world, these changes are called configuration changes.
+
+Activity recreation
+When a configuration change occurs, the running Activity gets restarted, which means it gets destroyed and recreated. When this happens, any instance data saved in the Activity is lost. Even data saved using remember is lost.
+
+What does this mean? It means all view state is lost. When recreated, the Activity returns to its initial state. This is the default behavior.
+
+Configuration changes is not the only scenario in which an Activity could get recreated. When the device is running low on memory, it may choose to destroy an Activity until it is required again, at which point it gets recreated. This leads to the same state loss mentioned earlier.
+
+Surviving Activity recreation
+What do you do if you want to persist your state across configuration changes? Compose offers a simple solution for most cases.
+
+When you want your UI state to survive configuration changes, you use rememberSaveable instead of remember. rememberSaveable, like remember, is responsible for saving state. Unlike remember, though, it saves state across configuration changes as well.
+
+The limitations of rememberSaveable
+For the most part, rememberSaveable is easy to use. You wrap your state with it, and it gets persisted. If your data is one of the data types that can be saved in an Android Bundle, your job is done. If, however, you want to store more complex data, you must work a bit harder.
+
+To make a more complex class into one that can be saved in a Bundle, one way is to make it implement a Parcelable interface. The Parcelable interface exists for classes that can be written to and read from a Parcel. Parcels, in turn, are containers that can be saved in a Bundle. 
+kotlin-parcelize
+ is an Android plugin that allows you to easily make your class conform to the Parcelable interface.
+
+If a Parcel doesn’t fit your situation, you can use 
+mapSaver
+ or 
+listSaver
+ to explicitly convert your data structure to a Map or a List, respectively. Both require you provide two lambdas: one for converting the data to the relevant collection type, and another to convert that collection back to the original data type.
+
+Concluding thoughts
+In this reading, you learned about configuration changes. You also learned about Activity recreation and its implications. Finally, you learned how to survive Activity recreation by using rememberSaveable. Knowing how to survive configuration changes is going to be vital to your work as an Android developer, as almost all modern apps are expected to survive Activity recreations.
+

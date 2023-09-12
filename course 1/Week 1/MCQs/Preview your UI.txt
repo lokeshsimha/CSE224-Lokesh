@@ -1,0 +1,26 @@
+Preview your UI
+When your project is set up, you can start previewing your UI elements. To do this, open the Preview tab in the Android Studio toolbar. This will open the Jetpack Compose Preview window. From here, you can select the layout file you want to preview, as well as customize the theme, size and orientation of the preview. You can also add any additional components or views you want to preview. 
+
+Make changes
+Once you’re happy with the layout of your UI, you can make changes to the code. To do this, open the Code tab in the Android Studio toolbar. This will open the Jetpack Compose code editor. From here, you can make changes to the code to customize the appearance of your UI elements.
+
+Explore the @Preview Annotation
+The @Preview annotation is used to tell Jetpack Compose Preview how to generate a preview of the design you are working on. It has three optional parameters:
+
+name: A string that describes the preview. This is used to identify the preview in the preview list.
+
+showDecoration: A boolean that indicates whether or not decorations should be shown in the preview.
+
+group: A string that indicates which group the preview belongs to. This is used to group previews in the preview list.
+
+Generate a Preview
+Once you have installed Jetpack Compose Preview and added the @Preview annotation to your design, you can generate a preview by running the following command in the terminal  :
+
+./gradlew composePreview
+
+This will generate a preview of your design and display it in the preview list.
+
+Previews can also be seen without running commands, often a better approach for those new to Compose. For example, you can create a new project using one of  Compose templates, open MainActivity, click Split in the top right corner and click Build and refresh to see the preview.
+
+Conclusion
+Jetpack Compose Preview is a great tool for quickly previewing designs built with Jetpack Compose. The @Preview annotation is used to tell Jetpack Compose Preview how to generate a preview of the design. Once installed, you can generate a preview by running the composePreview command in the terminal.

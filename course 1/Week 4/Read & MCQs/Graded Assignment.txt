@@ -1,0 +1,362 @@
+Your grade: 80%
+Your latest: 80%•
+Your highest: 80%•
+To pass you need at least 80%. We keep your highest score.
+1.
+Question 1
+Which of the following contains styles for buttons, lists, grids, images and many other composables?
+
+0 / 1 point
+
+UI elements
+
+
+
+composables
+
+
+
+Theme
+
+
+
+material components
+
+
+Incorrect
+Not quite. Please review the video 
+Theme function
+.
+
+2.
+Question 2
+Which of the following hexadecimal values will produce the white color?
+
+1 / 1 point
+
+0xFF000000
+
+
+
+0x00FFFFFF
+
+
+
+0x00000000
+
+
+
+0xFFFFFFFF
+
+
+Correct
+Correct! A value of FF for the first two characters means fully opaque. Setting FF for the remaining six characters means full color. 
+
+3.
+Question 3
+True or False: The main difference between dp (density independent pixel) and sp (scalable pixel) is that it takes the text size setting of the user device into consideration when deciding what text size should be displayed. 
+
+1 / 1 point
+
+True
+
+
+
+False
+
+
+Correct
+Correct! The user may modify this setting in the Android system preferences, and the text size is scaled accordingly in the application.
+
+4.
+Question 4
+Which of the following correctly creates a text composable with underlined text?
+
+1 / 1 point
+
+
+
+1234
+Text(
+    style = TextDecoration.Underline
+)
+
+
+
+
+
+Text(
+
+
+1234567
+    style = TextStyle(
+        text = “Hello World!”,
+        fontSize = 25.sp,
+        textDecoration = underline
+    )
+)
+
+
+
+
+
+12345678
+Text(
+    style = TextStyle(
+        text = “Hello World!”,
+        fontSize = 25.sp,
+        textDecoration = TextDecoration.Underline
+    )
+)
+
+
+
+
+
+12345678
+Text(
+    style = TextStyle(
+        text = “Hello World!”,
+        fontSize = 25.sp,
+        decoration = TextDecoration.Underline
+ )
+)
+
+
+
+Correct
+Correct! The text-decoration property can be used to apply underline text. The TextDecoration combine function enables the application of multiple decorations. 
+
+5.
+Question 5
+What will display on the screen when the following code is run? 
+
+
+
+0 / 1 point
+
+Nothing will happen.
+
+
+
+Part of the screen will be red.
+
+
+
+A red square of size 100 dp.
+
+
+
+The screen will be red.
+
+
+Incorrect
+Not quite. Please review the reading 
+Customizing colors in Material Theme
+.
+
+6.
+Question 6
+Which of the following is an optional modifier that can be used to specify the weight of a text within a Text composable?
+
+1 / 1 point
+
+fontSize
+
+
+
+weight
+
+
+
+fontWeight
+
+
+
+font
+
+
+Correct
+Correct! The Text composable accepts an optional fontWeight parameter for specifying the weight of text.
+
+7.
+Question 7
+Imagine you have a Surface with a Text composable as its content. Which of the following modifiers will set the minimum height required to show the text?
+
+1 / 1 point
+
+wrapContentSize
+
+
+
+fillMaxSize
+
+
+
+padding
+
+
+
+align
+
+
+Correct
+Correct! It is a good practice to set the minimum height required to show text. 
+
+8.
+Question 8
+Which of the following improves overall application interactivity, makes products more intuitive and helps attract user attention?
+
+1 / 1 point
+
+wireframes
+
+
+
+UX animation
+
+
+
+styling
+
+
+
+event listeners
+
+
+Correct
+Correct! By bringing the user interface to life, you can improve communication with your users..
+
+9.
+Question 9
+Which of the following will make the text “Hello World” slide up to disappear and slide down to disappear? 
+
+1 / 1 point
+
+12345678910111213
+var visible by remember {
+    mutableStateOf(true)
+}
+Column {
+    if  (visible)  {
+  
+        Text(text = “Hello World”)
+    }
+    Button(onClick = {  visible = !visible  })  {
+        Text(“Button“)
+
+
+
+
+12345678910
+var visible by remember {
+    mutableStateOf(true)
+}
+Column  {
+    AnimatedVisibility(visible) {
+        Text(text = “Hello World”)
+    }
+    Button(onClick = Text(“Button“))            
+}
+
+
+
+
+
+123456789101112
+var visible by remember {
+    mutableStateOf(true)
+}
+Column  {
+    AnimatedVisibility(visible)  {
+        Text(text = “Hello World”)
+    }
+    Button(onClick = {  visible = !visible  })  {
+        Text(“Button  “)
+    }
+
+
+
+
+123456789
+var visible by remember {
+    mutableStateOf(true)
+}
+Column {
+    if  (visible)  {
+        Text(text = “Hello World”)
+    }
+    Button(onClick = Text(“Button  “)) 
+
+
+
+Correct
+Correct! The animated visibility API provides a composable to smooth out text transitions from one state to another. 
+
+10.
+Question 10
+Which of the following will cause the text “Hello World” to fade in and out after clicking a button? 
+
+1 / 1 point
+
+12345678910111213141516
+var visible by remember {
+      mutableStateOf(true)
+}
+Column {
+      Button(onClick = {  visible = !visible  })  {
+            Text(“Button  “)
+      }
+      AnimatedVisibility(
+            visible = visible, 
+            enter,
+
+
+
+
+12345678910111213141516
+var visible by remember {
+      mutableStateOf(true)
+}
+Column  {
+      Button(onClick = {  visible = !visible  })  {
+            Text(“Button“)
+         }
+      if  (
+            visible = visible, 
+            enter = fadeIn(),
+
+
+
+
+12345678910111213141516
+var visible by remember {
+      mutableStateOf(true)
+}
+Column  {
+      Button(onClick = {  visible = !visible  })  {
+            Text(“Button  “)
+      }
+      AnimatedVisibility(
+            visible, 
+            fadeIn(),
+
+
+
+
+12345678910111213141516
+var visible by remember {
+      mutableStateOf(true)
+}
+Column {
+      Button(onClick = {  visible = !visible  })  {
+            Text(“Button  “)
+      }
+      AnimatedVisibility(
+            visible = visible, 
+            enter = fadeIn(),
+
+
+
+Correct
+Correct! The AnimatedVisibility animation effect can be changed to fade, slide or shrink.

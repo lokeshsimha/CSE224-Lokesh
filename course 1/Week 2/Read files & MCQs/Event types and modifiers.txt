@@ -1,0 +1,55 @@
+Event types and modifiers
+Overview
+One of the key concepts in application development is user interaction. Interaction events are triggered when a user interacts with a UI element. These events can be handled by the developer to provide a response to the user's actions. Some examples of interaction events in Jetpack Compose include clicks, long presses, and swipes.
+
+In this video, you will learn that event modifiers are a powerful tool in Jetpack Compose for enhancing the user experience and providing a more dynamic and interactive UI.
+
+Components respond to interactions in different ways so users know what their actions are doing. For example, if the taps a button on a device's touchscreen, the button is likely to change in some way, perhaps by adding a highlight color. This UI change helps the user know that they touched the button.
+
+This interaction handling can be implemented in Jetpack Compose using event modifiers.
+
+The clickable modifier
+One of the most commonly used event modifiers is the "clickable" modifier. 
+
+This modifier allows developers to specify a function to be executed when a user clicks or touches on a specific composable. This can be used to trigger actions such as navigating to a new screen or updating the state of a composable.
+
+In the following code example, the clickable modifier is used to increment the number displayed on a text element every time the element is clicked.
+
+1234
+val counter = remember { mutableStateOf(0) }
+
+
+Text(text = "Clicks: " + counter.value.toString(), modifier = Modifier.clickable { counter.value += 1 })
+The combine clickable modifier
+Another useful event modifier is the "combinedClickable" modifier, which allows for a different function to be executed when a user long-presses on a composable. This can be useful for providing additional options or actions for a composable.
+
+In the following example, the combinedClickable modifier is used to display the number of regular presses and long presses on a text element.
+
+123456
+val normalClicks = remember { mutableStateOf(0) }
+val longClicks = remember { mutableStateOf(0) }
+
+
+// content that you want to make clickable
+Text(text = "Normal: " + normalClicks.value.toString() + " Long: " + longClicks.value.toString(), modifier = Modifier.combinedClickable ( onClick = { normalClicks.value += 1 }, onLongClick = { longClicks.value += 1 } ))
+The draggable modifier 
+Jetpack Compose also allows for the use of gesture detectors, such as the "draggable" modifier. This modifier allows for the detection of drag gestures on a composable, allowing for the implementation of drag-and-drop functionality within a UI.
+
+The following code shows the draggable modifier applied to a Box element. When the drag event starts, it will print out "Starting drag" and then print out "Finishing drag" when the event ends.
+
+123456789
+val state = rememberDraggableState()
+
+
+Box(modifier = Modifier.draggable(
+    state = state,
+    orientation = Orientation.Vertical,
+    onDragStarted = { Log.d("Box", "Starting Drag") },
+    onDragStopped = { Log.d("Box", "Finishing Drag") }
+))
+Custom gestures
+In addition to built-in gestures, Jetpack Compose also allows developers to create custom gestures and gesture detectors. This allows for even more flexibility and customization in the UI. For example, a developer could create a custom gesture that triggers a specific action when a user swipes in a particular direction. The Additional Resources at end of this lesson include documentation links on building custom modifiers along with information on other Modifiers available in Jetpack Compose.
+
+Conclusion
+Overall, event modifiers are a powerful tool in Jetpack Compose for enhancing the user experience and providing a more dynamic and interactive UI. By leveraging event modifiers, developers can build powerful and engaging apps that respond to user interactions in real time. 
+

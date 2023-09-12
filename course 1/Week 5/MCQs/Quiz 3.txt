@@ -1,0 +1,56 @@
+Congratulations! You passed!
+Grade received 100%
+To pass 80% or higher
+1.
+Question 1
+Were you able to run the app successfully after setting up the DishDetail composable?
+
+1 / 1 point
+
+Yes
+
+
+No
+
+Correct
+Well done. Running the app is a good method of checking progress as you work on the project.
+
+2.
+Question 2
+When you press on the food menu item, does the app navigate to the detail view?
+
+1 / 1 point
+
+Yes
+
+
+No
+
+Correct
+Well done. You will build upon this feature in the next exercise.
+
+3.
+Question 3
+When the food item detail view is displayed, which of the following are displayed in the app? Select all that apply.
+
+1 / 1 point
+
+Dish Calories
+
+
+Dish Name
+
+Correct
+Well done. The dish name displays with a heading level 1 style.
+
+
+Dish Description
+
+Correct
+Well done. The dish description displays with a body level 1 style.
+
+
+Dish Image
+
+Correct
+Well done. The dish image displays at the maximum available width in the app.

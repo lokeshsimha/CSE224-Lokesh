@@ -1,0 +1,25 @@
+UI representation in XML
+So far, you’ve learned about an Activity and its views and layouts. In this reading, you’ll explore XML, its structure and how it can be used to design a hierarchy of views in greater detail.
+
+Android applications are made of Activities, which consist of UI elements that the user can interact with. These UI elements are hierarchical in nature; a root element at the top with zero or more children. All UI elements are sub-classes of the View class and thus share some properties. A special type of UI element called view groups acts as a container for grouping other views and they influence the way other views are drawn on screen and interact with each other. These kinds of views are inherited from the ViewGroup class. 
+
+After creating an Activity, you pass it as a layout resource that will be rendered on the screen. This layout resource is an XML file. An XML is a file used for storing structured information; in this case, structured information on how the Android OS should draw the views on the screen. XML documents are hierarchical which makes them the perfect medium for representing nested UI elements in Android. Imagine an inverted tree with branches:
+
+Illustration of hierarchy of ViewGroups and Views
+At the root of the XML layout is a view group, and it can contain views or other view groups, which in turn can also contain views and view groups. This is just like a tree with branches, each branch can have other branches or it can end in a leaf. Sometimes, a layout can also contain a single view.
+
+While examples of view groups include: LinearLayout, RelativeLayout and FrameLayouts; examples of views include TextView, Button, ImageView, and the ProgressBar. Each view group has different behaviors and ways of positioning its children and thus serves different purposes.
+
+Every view or view group has properties that you can tweak to achieve the desired look and feel you have for your Little Lemon app. Some of these properties are shared among them. For example, all views and view groups have layout_height and layout_width properties; this is how you tell the Android OS how big or small you want the UI element to look. Some other properties are unusual to a particular view. For example, only an ImageView has a src property, this is how you tell it which image to display. When a view is in a particular view group, it can access some of the properties of the view group to tell the view group how to position it. For example, a TextView in a RelativeLayout can have a layout_centerInParent = true, this tells the  RelativeLayout to center the TextView horizontally and vertically.
+
+Let’s explore some examples in code. This is an XML layout:
+
+Code block illustrating View Groups and Views
+The first line instructs Android Studio how to interpret the characters in the XML file. Then follows the view group, which is a LinearLayout in this case. Both lines 3 and 4 instruct the OS to draw this view group to fill its parent, which is the phone width and height in this case. Line 5 and 6 means the children of this view group should be positioned below each other and at its center. 
+
+Inside the view group are two views: an ImageView and a TextView. They both have a wrap_content attribute meaning that their width and height will be derived from their content. This is the views telling the view group “my size should be the size of the content I display”. If you increase or decrease the text displayed by the TextView for example, the size of the TextView will increase or decrease respectfully.
+
+Just as an  ImageView has a src attribute for the image it should display, so the TextView has a text attribute for the text it should display. These properties are specific to both views; if you pass a src attribute to a Textview for example, it will be ignored.
+
+Android Studio provides a way to preview an XML layout as you’re writing it. Hence, if you preview the instruction above, the right side displays the blueprint of the UI and on the left is what users see when they run the app.
+

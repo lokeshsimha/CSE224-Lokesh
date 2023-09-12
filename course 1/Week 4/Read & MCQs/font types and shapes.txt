@@ -1,0 +1,84 @@
+Customizing font types and shapes
+Overview
+In the preceding reading material, you learned how to define and configure the Surface. You learned about Surface attributes including background color and border. You also learned how to align composables within available Surface space. In this reading, you’ll learn about customizing font types and shapes.
+
+Styling Text
+The simplest version of a text composable requires the text to be passed as the argument:
+
+Text(text = "Little Lemon")
+
+However, the Text composable allows for a large variety of text customization.  There are over 15 parameters that enable custom text styling capabilities. Let’s explore the Text composable constructor signature:
+
+123456789101112131415161718
+fun Text(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    fontSize: TextUnit = TextUnit.Unspecified,
+    fontStyle: FontStyle? = null,
+    fontWeight: FontWeight? = null,
+    fontFamily: FontFamily? = null,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    textDecoration: TextDecoration? = null,
+
+All these arguments have a default value assigned, so they don’t have to be passed when creating a new Text composable. You will supply some of these parameters to learn how they are impacting the text look. 
+
+Text Styling
+Let’s start by changing the text appearance by setting the font size to 24 sp and the text color to yellow.
+
+setting the font size 
+The black border is not part of the composable and it will not be visible in the mobile app. This border is drawn by Android Studio to mark the edge of the mobile screen preview.
+
+Next, you set the font family to monospace to make sure that each letter occupies the same amount of horizontal space on the screen.
+
+setting the font family 
+ You should also change the letter spacing to increase spacing between each letter.
+
+changing the letter spacing 
+Now, use the shadow parameter to define the black shadow with 8f offset and a blur radius of 4f. The letter “f” means float number – this is a Kotlin format for defining numbers that contain decimal precision. 
+
+using the shadow parameter 
+ Next, you align the text to the center by setting the text to align to the center.
+
+aligning the text to the center 
+Text Decoration
+Then you use the text-decoration property and apply the underline text decoration by setting text-decoration to underline. 
+
+using the text decoration 
+Multiple decorations can be applied at the same time. To apply multiple decorations, you use the TextDecoration combine function.
+
+applying multiple decorations
+In the preview, the text appearance is now heavily customized.
+
+You can mix and match these arguments in any way you want. For example, you can apply shadow and text color or letter spacing and font family. The Text composable attributes are a powerful tool that enables a wide range of text customizations.
+
+Customizing Individual Letters
+Up to this point, you have been customizing the white text inside Text composable, however, it is possible to apply text style to only a subset of text. Let’s use different colors to style the “Little Lemon” restaurant name. 
+
+Let’s use the buildAnnotatedString function to change the color and size of the single letter. You will change the color of the letter “L” to yellow, set its weight to bold and font size to 20 sp. Don’t change the default color for the text “ittle”.
+
+ 
+
+Using the build Annotated String function 
+Custom letter formatting can be applied multiple times in a single text composable. Now you can style the word “Lemon” in a similar way. Change the color of the letter “L” to yellow and set its weight to bold. Don’t change the default color of the text “emon”.
+
+Custom letter formatting 
+Shapes
+Shape modification can provide a unique look and feel to your app. Now, you will define a Surface.
+
+defining a Surface
+By default, the surface has a rectangular shape. You will now modify the shape of the surface by adding a shape parameter to the Surface and setting the rounded corner shape with and passing the value of 80 dp.
+
+modifying the shape of a surface 
+In the above example, you have set 80 dp for all the corners, however, the rounder corner shape constructor allows you to pass individual values for each corner. Now, you will pass 80 dp as a first and third argument, defining the corner radius for the top start corner and bottom end corners. You will also pass the 0 dp value as the second and fourth arguments defining the corner radius for the top-end corner and bottom-start corners.
+
+Passing individual values 
+You will set the surface border by adding a border argument to the surface and passing the Border stroke with a 10 dp border width and orange color.
+
+Now add a border to the composable using the border stroke to the border parameters.  You will pass 10 sp representing the border line width and orange representing the border color.
+
+Adding a border to the composable 
+ Shapes offer a wide range of customization options.
+
+Conclusion
+In this reading material, you learned about customizing text appearance. You also learned how to set a font color, font size, font family, letter spacing, shadow and aligning a text. You explored how to add text decorations such as underline or strikethrough. You discovered how to use text color, text alignment type and font shape. Finally, you learned how to define various shapes for the composable.

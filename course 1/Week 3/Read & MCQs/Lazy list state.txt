@@ -1,0 +1,58 @@
+Lazy list state
+Overview
+Previously you learned about making Lazy Lists in Jetpack Compose using the LazyRow and LazyColumn composable.  In this reading, you will learn about retaining the state of the Lazy Lists even after the orientation changes.    
+
+Defining LazyRowRememberedState  composable with  rememberLazyListState()
+To retain the state of the LazyRow after the orientation changes, you need to create a LazyListState that is remembered across compositions. Below is an example code for setting the state of a LazyColumn to the rememberLazyListState().  
+
+12345678910111213141516171819202122232425262728293031323334353637383940
+@Composable
+fun LazyRowRememberedState() {     
+             LazyRow(state = rememberLazyListState()) {         
+        items(5000) {
+             MyCard(number = it) 
+                   }    
+             } 
+    }    
+  
+@Composable
+
+Note that rememberLazyListState() function creates a LazyListState that is remembered across recompositions.    
+
+When you want to retain the state of the LazyColumn after the orientation changes like the LazyRow, you need to create a LazyListState that is remembered across recompositions. Below is an example code for setting the state of a LazyColumn to remember LazyListState().    
+
+Defining LazyColumnRememberedState composable with  rememberLazyListState()
+ When you want to retain the state of the LazyColumn after the orientation changes like the LazyRow, you need to create a LazyListState that is remembered across recompositions. Below is an example code for setting the state of a LazyColumn to rememberLazyListState().     
+
+1234567891011121314151617181920212223242526
+@Composable
+fun LazyColumnRememberedState() {     
+             LazyColumn(state = rememberLazyListState()) {         
+        items(5000) {
+             MyCard(number = it) 
+             }    
+       } 
+}    
+
+
+
+Nested Scrolling Lazy Layouts    
+Nested Lazy Lists displayed on a mobile screen.
+ Previously in this course, you learned that nested scrolling can be applied to a scrollable Column and a scrollable Row. Jetpack Compose also supports nested scrolling for LazyRow and LazyColumn. Below is an example of the LazyRow inside the LazyColumn.    
+
+1234567891011121314151617181920212223242526272829303132333435363738
+@Composable
+fun LazyColumnRememberedState() {     
+             LazyColumn(state = rememberLazyListState()) {         
+         item { LazyRowRememberedState() }
+         items(1000) {
+             MyCard(number = it) 
+             }    
+       } 
+}    
+
+
+Conclusion
+In this reading, you learned about retaining the state of the LazyRow and LazyColumn. You also learned about rememberLazyListState function, orientation changes and nested layouts.         
+
+Completed

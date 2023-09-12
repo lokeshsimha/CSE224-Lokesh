@@ -1,0 +1,113 @@
+Navigation Examples
+Overview 
+Up to now, you have learned about the types of Navigations in Jetpack Compose. You also learned about the NavHost, NavController, and NavGraph along with a coding example. 
+
+In this reading, you will learn about passing the arguments from one composable destination to another, along with the coding examples. You will also be introduced to different argument types supported by the Navigation component.
+
+To help you understand, I am going to extend the previous example of navigation by passing an order number from Home Destination to Menu Destination. 
+
+Defining a constant argument in Destination
+Defining a constant argument in Destination is an optional step but it helps organize the arguments and avoid name mismatch errors. It also helps to select the relevant arguments that can be passed to a specific destination. 
+
+In this example, the order number is passed to Menu Destination, so I will add a constant variable in the Menu object in the Destinations file. The important point is that although the argument will be of integer type, its name is String. 
+
+1
+    const val argOrderNo = "OrderNo"
+Below you will find the complete object code for this step containing the argOrderNo constant.
+
+1234
+object Menu : Destinations {
+    const val argOrderNo = "OrderNo"
+    override val route = "Menu"
+}
+Adding the argument to the NavHost
+Arguments need to be specified in NavHost to be utilized.  For example, if the route specified in the composable function calling the Menu.route in the MainActivity is the following:
+
+1
+Menu.route + "/"
+You append the menu route with the argOrderNo. So, it becomes: 
+
+1
+Menu.route + "/{${Menu.argOrderNo}}"
+The string that will be formed from the above expression will be like: 
+
+1
+"Menu/{OrderNo}"
+Adding the OrderNo to the MenuScreen
+The order number argument can now be added to the MenuScreen composable. It can be then used in the composable. For example, to display the order number in the Text object, the following code would be used: 
+
+12345678910111213
+@Composable
+fun MenuScreen(orderNo: Int?) {
+    Column(
+        Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Menu List Order $orderNo",
+            fontSize = 32.sp
+
+Extracting the Argument and passing to the MenuScreen
+The complete code for the composable function is: 
+
+1234567
+composable(
+    Menu.route + "/{${Menu.argOrderNo}}",
+    arguments = listOf(
+        navArgument(Menu.argOrderNo) { type = NavType.IntType}
+)) {
+    MenuScreen(it.arguments?.getInt(Menu.argOrderNo))
+   }
+The arguments is a list of nav arguments containing their type. The arguments are specified using the function navArgument and passing the Menu.argOrderNo, which you used above. You also set the type to NavType.IntType in the trailing lambda.
+
+1
+navArgument(Menu.argOrderNo){ type = NavType.IntType }
+Note that the default argument Type is String when type is not specified.
+
+The value of navigation argument is then passed to the MenuScreen composable by using the getInt method.
+
+1
+MenuScreen(it.arguments?.getInt(Menu.argOrderNo))
+Updating the navigate function to contain the argument
+Now when the navigate function is called, the argument can be specified as part of the route.
+
+1
+navController.navigate(Menu.route + "/10")
+Complete Example
+You can find a complete example project in the zip file:
+
+Basic types supported by the Navigation
+The following are the basic types supported by Navigation:
+
+ Type    
+
+ Argument type syntax    
+
+String
+
+NavType.StringType
+
+Integer
+
+NavType.IntType    
+
+Boolean 
+
+NavType.BoolType    
+
+Float
+
+NavType.FloatType    
+
+Long
+
+NavType.LongType    
+
+For more types and details please refer to Android documentation:
+
+https://developer.android.com/guide/navigation/navigation-pass-data#supported_argument_types
+   
+
+Conclusion 
+In this reading, you learned about passing the arguments from one composable destination to another, along with the coding examples. You also learned about different argument types supported by the Navigation component. 

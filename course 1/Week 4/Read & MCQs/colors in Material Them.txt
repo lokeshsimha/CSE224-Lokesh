@@ -1,0 +1,97 @@
+Customizing colors in Material Theme
+Overview
+In the preceding reading material, you learned how to work with the UI. You defined the application color palette and text styles. You also learned about the different styles and themes and how they can be used to define the application look and feel you want. In this reading, you’ll learn about customizing surfaces and content color in Android Studio. Let’s explore how to do this.   
+
+Defining the Surface
+Let’s define a Surface composable.
+
+12
+Surface() {
+}
+Set the color property of the Surface to yellow.
+
+12
+Surface(color = LittleLemonColor.yellow) {
+}
+Now the Surface composable will have a yellow background. 
+
+Surface composable code
+However, the surface is not visible in the preview panel because there is no surface size specified. By default, the surface has a width and height of zero. To specify the size of the Surface and make it visible, you use the fillMaxSize modifier.
+
+12345
+Surface(
+    color = LittleLemonColor.yellow,
+    modifier = Modifier.fillMaxSize()
+) {
+}
+Now the surface size is updated to match the entire screen, so the entire screen is filled with a yellow background.
+
+Little lemon color 
+Adding the Surface Content
+Like layout related composables, such as Row, Grids or Column, the Surface composable can have content. Here the Text composable is added as Surface content: 
+
+12345678910111213
+Surface(
+    color = LittleLemonColor.yellow,
+    modifier = Modifier
+        .fillMaxSize()
+) {
+    Text(
+        text = "Lemon",
+        fontSize = 80.sp,
+        modifier = Modifier
+            .padding(30.dp)
+
+To improve visibility, set the font size to 8 sp and padding to 30 dp. Now the “Lemon” text is visible on the screen.
+
+Preview Lemon text on screen
+ The black border in the preview panel means that the Text composable is taking up almost the whole size of the surface, besides the 10 dp padding that was set earlier. It is good practice to set a minimum height required to show the text. You will do it by using the wrapContentSize modifier.
+
+Preview with with wrap content size modifier
+Now the Surface has a size that matches the screen size, while the Text composable has a size that matches the “Lemon text”. After decreasing the Text font size to 40 sp, the Text composable will have smaller width and height on the screen and the Text border reflects this change.
+
+Preview with Surface size that matches screen size
+Navigating  
+Now the HomeScreen composable consists of two composables: the Surface and the Text. After clicking on the composable in the preview, Android Studio will select the first line of the code that corresponds to a given composable.
+
+Home screen surface composable 
+Surface Content Alignment
+The Text composable is centered vertically and horizontally within the Surface composable
+
+Text composable is centered vertically and horizontally 
+ The wrapContentSize modifier uses the alignment center as a default value.
+
+wrap content size alignment
+To change Text alignment, you will set the align param of the wrap content size modifier to one of the available values.
+
+Changing Text alignment
+You now select the alignment.top start.
+
+Selecting the alignment top start
+The Text is displayed at the top-left corner of the surface. 
+
+In left-to-right languages start means the left side of the screen, while in right-to-left languages start means the right side of the screen. This setting is defined and is device location specific to the user's language and country. Because of padding, there are small gaps at the top and left of the Text.
+
+Multiple Children on the Surface
+Surface can contain multiple composables. Now you will add another composable by copying the existing Text composable and changing the text to “Little”.
+
+Adding another composable by copying the existing Text 
+The text on the screen is not great! This is because the text composables are overlapping. The text “Little” is rendered on top of the composable with “Lemon” text. Sometimes this behavior is desired, for example, when stacking images on top of each other. However, in most cases, it is better to use other layouts like Row or Column instead of Surface. 
+
+Multiple Surfaces on the Screen
+Let’s now go back to the last change and remove the second text composable to restore the view.
+
+Surfaces can be arranged using layouts, like any other composables. Now you will add two surfaces and place one next to the other one by using Column layout. Each surface has 7 dp height and contains a single text composable with 30 sp font size. The first surface is yellow and the second surface is pink.
+
+Adding two surfaces and placing one next to the other 
+ Next, you modify the text alignment of each Text composable. For the pink surface, you set the alignment to the bottom center and for the yellow Surface, you set the alignment to the top end. 
+
+Modifying the text alignment 
+The text is aligned according to the size of each Surface, inside the available space of each Surface. Let’s change the height of the yellow Surface to 120 dp.
+
+Text is aligned according to the size of each Surface
+The height of the yellow has changed. The “Little” text is still aligned to the bottom of the Surface. The position of both Text composables has changed on the screen, but it is the same within the space of the corresponding Surface.
+
+Conclusion
+In this reading, you learned about customizing surface content. You learned how to modify surface attributes including background color, border and size. You also learned how to align child composables.
+

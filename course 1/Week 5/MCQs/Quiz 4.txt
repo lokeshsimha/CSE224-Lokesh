@@ -1,0 +1,32 @@
+Congratulations! You passed!
+Grade received 100%
+To pass 80% or higher
+1.
+Question 1
+Were you able to run the app successfully after setting up the Little Lemon theme?
+
+1 / 1 point
+
+Yes
+
+
+No
+
+Correct
+Well done. Running the app is a good method of checking progress as you work on the project.
+
+2.
+Question 2
+Does the app look similar to the image below?
+
+Home screen
+
+1 / 1 point
+
+Yes
+
+
+No
+
+Correct
+ Well done. You are ready to proceed to the peer review.   
